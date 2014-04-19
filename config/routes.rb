@@ -19,5 +19,7 @@ TestApp::Application.routes.draw do
     get    "account" => "devise/registrations#edit",   as: :edit_user_registration
   end
 
-  resources :podcasts
+  resources :podcasts do
+    resources :episodes
+  end
 end

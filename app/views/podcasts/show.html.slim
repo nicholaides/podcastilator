@@ -1,6 +1,26 @@
 h2 = @podcast.title
 p#notice = notice
 
+table.table
+  thead
+    tr
+      th Name
+      th Type
+      th Size
+      th
+
+  tbody
+    - @podcast.episodes.each do |episode|
+      tr
+        td = link_to episode.file_name, episode.filepicker_url
+        td = episode.mime_type
+        td = number_to_human_size(episode.size)
+        td = link_to 'Destroy', podcast_episode_path(@podcast, episode), data: { confirm: 'Are you sure?' }, method: :delete
+
+= form_for @podcast, url: podcast_episodes_path(@podcast) do |f|
+  .form-group
+    label for="podcast_episode_urls" Add files
+    = f.filepicker_field :episode_urls, multiple: true, store_access: 'public', dragdrop: true
 
 = link_to 'Edit', edit_podcast_path(@podcast)
 | &nbsp;|&nbsp;

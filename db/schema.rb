@@ -11,15 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140419191412) do
+ActiveRecord::Schema.define(version: 20140419205703) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "episodes", force: true do |t|
     t.integer  "podcast_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "filepicker_url", null: false
+    t.string   "file_name",      null: false
+    t.string   "mime_type",      null: false
+    t.integer  "size",           null: false
+    t.boolean  "is_writeable",   null: false
   end
 
-  add_index "episodes", ["podcast_id"], name: "index_episodes_on_podcast_id"
+  add_index "episodes", ["podcast_id"], name: "index_episodes_on_podcast_id", using: :btree
 
   create_table "podcasts", force: true do |t|
     t.string   "title"
@@ -29,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140419191412) do
     t.datetime "updated_at"
   end
 
-  add_index "podcasts", ["user_id"], name: "index_podcasts_on_user_id"
+  add_index "podcasts", ["user_id"], name: "index_podcasts_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -47,8 +55,8 @@ ActiveRecord::Schema.define(version: 20140419191412) do
     t.string   "username"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

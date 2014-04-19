@@ -48,8 +48,9 @@ gem 'validates_formatting_of'
 gem 'underscore-rails'
 gem 'rails_serve_static_assets'
 
-
 gem 'slim-rails'
+
+gem 'filepicker-rails'
 
 group :test do
   gem 'capybara'
@@ -69,7 +70,6 @@ group :development, :test do
   gem 'guard-teaspoon'
   gem 'guard-rails'
 end
-
 
 group :development do
   gem 'better_errors'

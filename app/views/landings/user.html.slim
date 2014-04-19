@@ -1,0 +1,6 @@
+h1 My Podcasts
+
+= link_to "+ Create Podcast", new_podcast_path, class: 'btn'
+
+- current_user.podcasts.each do |podcast|
+  li= link_to podcast

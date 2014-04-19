@@ -1,10 +1,8 @@
 source 'https://rubygems.org'
+ruby '2.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
-
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
@@ -20,12 +18,6 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -43,6 +35,8 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'pg'
+
 gem 'bundler'
 
 gem 'bootstrap-sass', github: 'twbs/bootstrap-sass'
@@ -50,10 +44,35 @@ gem 'bootstrap-sass-extras'
 gem 'binding_of_caller'
 gem 'devise', github: 'plataformatec/devise'
 gem 'omniauth'
-gem 'omniauth-facebook'
 gem 'validates_formatting_of'
+gem 'underscore-rails'
+gem 'rails_serve_static_assets'
+
+
+gem 'slim-rails'
+
+group :test do
+  gem 'capybara'
+  gem 'capybara-screenshot'
+  gem 'database_cleaner', '1.0.1'
+  gem 'poltergeist'
+end
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'dotenv-rails'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'thin'
+  gem 'sinon-rails'
+  gem 'teaspoon'
+  gem 'guard-teaspoon'
+  gem 'guard-rails'
+end
+
 
 group :development do
-  gem 'pry-rails'
   gem 'better_errors'
+  gem 'foreman'
+  gem 'quiet_assets'
 end

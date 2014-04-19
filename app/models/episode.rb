@@ -12,4 +12,8 @@ class Episode < ActiveRecord::Base
       )
     end
   end
+
+  def title
+    file_name.gsub(/\.[^\.]*$/, '')
+  end
 end

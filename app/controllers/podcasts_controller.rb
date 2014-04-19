@@ -2,7 +2,7 @@ class PodcastsController < ApplicationController
   before_action :set_podcast, only: [:show, :edit, :update, :destroy]
 
   def index
-    @podcasts = current_user.podcasts
+    redirect_to root_url
   end
 
   def show

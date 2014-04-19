@@ -1,0 +1,9 @@
+doctype xml
+rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+  channel
+    - @podcast.episodes.each do |episode|
+      title =
+      item
+        title = episode.title
+        link = episode.filepicker_url
+        enclosure url=episode.filepicker_url type=episode.mime_type length=episode.size

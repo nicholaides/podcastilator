@@ -22,4 +22,6 @@ TestApp::Application.routes.draw do
   resources :podcasts do
     resources :episodes
   end
+
+  resources :feeds
 end

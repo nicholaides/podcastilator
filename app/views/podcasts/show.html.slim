@@ -1,6 +1,8 @@
 h2 = @podcast.title
 p#notice = notice
 
+h4 = link_to "Atom Feed", feed_url(@podcast.public_id), target: 'blank'
+
 table.table
   thead
     tr
@@ -22,6 +24,10 @@ table.table
     label for="podcast_episode_urls" Add files
     = f.filepicker_field :episode_urls, multiple: true, store_access: 'public', dragdrop: true
 
-= link_to 'Edit', edit_podcast_path(@podcast)
-| &nbsp;|&nbsp;
-= link_to 'Back', podcasts_path
+div
+  = link_to 'Delete Podcast', @podcast, data: {:confirm => 'Are you sure?'}, method: :delete, class: 'btn btn-danger'
+
+div
+  = link_to 'Edit', edit_podcast_path(@podcast)
+  | &nbsp;|&nbsp;
+  = link_to 'Back', podcasts_path

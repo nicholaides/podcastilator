@@ -16,4 +16,19 @@ class Episode < ActiveRecord::Base
   def title
     file_name.gsub(/\.[^\.]*$/, '')
   end
+
+  before_create :set_order
+
+  def set_order
+    self.order = Time.now.to_i
+  end
+
+  def self.save_order(episodes)
+    transaction do
+      episodes.each.with_index do |episode, idx|
+        episode.order = idx
+        episode.save!
+      end
+    end
+  end
 end

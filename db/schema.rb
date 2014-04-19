@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140419205703) do
+ActiveRecord::Schema.define(version: 20140419221456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140419205703) do
     t.string   "mime_type",      null: false
     t.integer  "size",           null: false
     t.boolean  "is_writeable",   null: false
+    t.integer  "order"
   end
 
   add_index "episodes", ["podcast_id"], name: "index_episodes_on_podcast_id", using: :btree

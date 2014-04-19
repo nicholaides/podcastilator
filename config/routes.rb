@@ -20,7 +20,12 @@ TestApp::Application.routes.draw do
   end
 
   resources :podcasts do
-    resources :episodes
+    resources :episodes do
+      collection do
+        put :sort
+        put :reverse
+      end
+    end
   end
 
   resources :feeds

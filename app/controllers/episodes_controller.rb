@@ -7,6 +7,16 @@ class EpisodesController < ApplicationController
     head :ok
   end
 
+  def sort
+    Episode.save_order(podcast.episodes.sort_by(&:title))
+    redirect_to podcast
+  end
+
+  def reverse
+    Episode.save_order(podcast.episodes.sort_by(&:order).reverse)
+    redirect_to podcast
+  end
+
   def destroy
     episode.destroy
     redirect_to podcast

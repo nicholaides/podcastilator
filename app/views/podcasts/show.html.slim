@@ -11,12 +11,18 @@ table.table
       th
 
   tbody
-    - @podcast.episodes.each do |episode|
+    - @podcast.episodes.sort_by(&:order).each do |episode|
       tr
         td = link_to episode.file_name, episode.filepicker_url
         td = episode.mime_type
         td = number_to_human_size(episode.size)
-        td = link_to 'Destroy', podcast_episode_path(@podcast, episode), data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Destroy', podcast_episode_path(@podcast, episode), data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'
+
+- if @podcast.episodes.any?
+  div
+    = link_to 'Sort', sort_podcast_episodes_path(@podcast), method: :put, class: 'btn btn-primary'
+    |&nbsp;
+    = link_to 'Reverse', reverse_podcast_episodes_path(@podcast), method: :put, class: 'btn btn-primary'
 
 = form_for @podcast, url: podcast_episodes_path(@podcast) do |f|
   .form-group
@@ -28,5 +34,5 @@ div
 
 div
   = link_to 'Edit', edit_podcast_path(@podcast)
-  | &nbsp;|&nbsp;
+  |&nbsp;|&nbsp;
   = link_to 'Back', podcasts_path

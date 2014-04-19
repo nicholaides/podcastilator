@@ -1,11 +1,10 @@
 class PodcastsController < ApplicationController
+  before_filter :require_user_signed_in
+
   before_action :set_podcast, only: [:show, :edit, :update, :destroy]
 
   def index
     redirect_to root_url
-  end
-
-  def show
   end
 
   def new

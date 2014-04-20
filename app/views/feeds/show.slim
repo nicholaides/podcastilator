@@ -1,7 +1,7 @@
 doctype xml
 rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
   channel
-    - @podcast.episodes.each do |episode|
+    - @podcast.episodes.sort_by(&:order).each do |episode|
       title =
       item
         title = episode.title

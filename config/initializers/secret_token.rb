@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-TestApp::Application.config.secret_key_base = 'f0d39df9e70314bf7a92869b508d20283125693f21abff5b7de7647f32e6d8d8364d5e01e9600b3d4938b29ab0e49ed75f54e3d825fe49ae8b8091fa8e413ecb'
+Podcastilator::Application.config.secret_key_base = 'f0d39df9e70314bf7a92869b508d20283125693f21abff5b7de7647f32e6d8d8364d5e01e9600b3d4938b29ab0e49ed75f54e3d825fe49ae8b8091fa8e413ecb'

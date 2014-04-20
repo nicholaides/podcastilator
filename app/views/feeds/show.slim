@@ -1,8 +1,9 @@
 doctype xml
 rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
   channel
+    title = @podcast.title
+
     - @podcast.episodes.sort_by(&:order).each do |episode|
-      title =
       item
         title = episode.title
         link = episode.filepicker_url

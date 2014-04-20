@@ -1,6 +1,6 @@
 h2 Edit #{resource_name.to_s.humanize}
 
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+= form_for resource, as: resource_name, url: registration_path(resource_name), html: { method: :put } do |f|
   = devise_error_messages!
 
   .form-group
@@ -19,23 +19,6 @@ h2 Edit #{resource_name.to_s.humanize}
     = f.text_field :phone, class: 'text-field form-control'
 
   .form-group
-    = f.label :password
-    em
-      | (leave blank if you don't want to change it)
-    = f.password_field :password, autocomplete: "off", class: 'text-field form-control'
-
-  .form-group
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation, autocomplete: "off", class: 'text-field form-control'
-
-
-  .form-group
-    = f.label :current_password
-    em
-      | (we need your current password to confirm your changes)
-      = f.password_field :current_password, autocomplete: "off", class: 'text-field form-control'
-
-  .form-group
     = f.submit "Update", class: 'btn btn-primary'
 
 h3 Cancel my account
@@ -43,6 +26,30 @@ h3 Cancel my account
 .form-group
   p Unhappy?
   = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger'
+
+h3 Change password
+= form_for resource, as: resource_name, url: registration_path(resource_name), html: { method: :put } do |f|
+  .form-group
+    = f.label :password, "New password"
+    em
+      | (leave blank if you don't want to change it)
+    = f.password_field :password, autocomplete: "off", class: 'text-field form-control'
+
+  .form-group
+    = f.label :password_confirmation, "New password, again"
+    = f.password_field :password_confirmation, autocomplete: "off", class: 'text-field form-control'
+
+  .form-group
+    = f.label :current_password
+    em
+      | (we need your current password to confirm your changes)
+    = f.password_field :current_password, autocomplete: "off", class: 'text-field form-control'
+
+  .form-group
+    = f.submit "Update Password", class: 'btn btn-primary'
+
+
+
 
 .form-group
   = link_to "Back", :back

@@ -19,6 +19,13 @@ h2 Edit #{resource_name.to_s.humanize}
     = f.text_field :phone, class: 'text-field form-control'
 
   .form-group
+    = f.label :current_password
+    em
+      | (we need your current password to confirm your changes)
+    = f.password_field :current_password, autocomplete: "off", class: 'text-field form-control'
+
+
+  .form-group
     = f.submit "Update", class: 'btn btn-primary'
 
 h3 Cancel my account
@@ -31,8 +38,6 @@ h3 Change password
 = form_for resource, as: resource_name, url: registration_path(resource_name), html: { method: :put } do |f|
   .form-group
     = f.label :password, "New password"
-    em
-      | (leave blank if you don't want to change it)
     = f.password_field :password, autocomplete: "off", class: 'text-field form-control'
 
   .form-group

@@ -15,6 +15,10 @@ h2 Edit #{resource_name.to_s.humanize}
     .form-group Currently waiting confirmation for: #{resource.unconfirmed_email}
 
   .form-group
+    = f.label :phone
+    = f.text_field :phone, class: 'text-field form-control'
+
+  .form-group
     = f.label :password
     em
       | (leave blank if you don't want to change it)

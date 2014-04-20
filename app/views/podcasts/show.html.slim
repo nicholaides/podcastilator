@@ -20,14 +20,14 @@ table.table
 
 - if @podcast.episodes.any?
   div
-    = link_to 'Sort', sort_podcast_episodes_path(@podcast), method: :put, class: 'btn btn-primary'
+    = link_to 'Sort', sort_podcast_episodes_path(@podcast), method: :put, class: 'btn btn-default'
     |&nbsp;
-    = link_to 'Reverse', reverse_podcast_episodes_path(@podcast), method: :put, class: 'btn btn-primary'
+    = link_to 'Reverse', reverse_podcast_episodes_path(@podcast), method: :put, class: 'btn btn-default'
 
 = form_for @podcast, url: podcast_episodes_path(@podcast) do |f|
   .form-group
     label for="podcast_episode_urls" Add files
-    = f.filepicker_field :episode_urls, multiple: true, store_access: 'public', dragdrop: true
+    = f.filepicker_field :episode_urls, multiple: true, store_access: 'public', dragdrop: true, button_class: 'btn btn-primary'
 
 div
   = link_to 'Delete Podcast', @podcast, data: {:confirm => 'Are you sure?'}, method: :delete, class: 'btn btn-danger'

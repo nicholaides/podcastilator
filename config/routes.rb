@@ -20,6 +20,10 @@ TestApp::Application.routes.draw do
   end
 
   resources :podcasts do
+    member do
+      post :phone
+    end
+
     resources :episodes do
       collection do
         put :sort

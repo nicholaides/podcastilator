@@ -52,6 +52,8 @@ gem 'slim-rails'
 
 gem 'filepicker-rails'
 
+gem 'twilio-ruby'
+
 group :test do
   gem 'capybara'
   gem 'capybara-screenshot'

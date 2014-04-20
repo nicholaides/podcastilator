@@ -1,7 +1,7 @@
 class PodcastsController < ApplicationController
   before_filter :require_user_signed_in
 
-  before_action :set_podcast, only: [:show, :edit, :update, :destroy]
+  before_action :set_podcast, only: [:show, :edit, :update, :destroy, :phone]
 
   def index
     redirect_to root_url
@@ -9,9 +9,6 @@ class PodcastsController < ApplicationController
 
   def new
     @podcast = current_user.podcasts.build
-  end
-
-  def edit
   end
 
   def create
@@ -35,6 +32,26 @@ class PodcastsController < ApplicationController
   def destroy
     @podcast.destroy
     redirect_to podcasts_url, notice: 'Podcast was successfully destroyed.'
+  end
+
+  def phone
+    phone = current_user.phone
+
+    if phone.present?
+      title = @podcast.title
+      url   = feed_url(@podcast.public_id)
+      message = "#{title}\n#{url}"
+
+      TWILIO_CLIENT.account.messages.create(
+        to: phone,
+        body: message,
+        from: ENV['TWILIO_FROM_NUMBER']
+      )
+
+      redirect_to @podcast, notice: "Sent"
+    else
+      redirect_to @podcast, alert: "No phone number set"
+    end
   end
 
   private

@@ -38,8 +38,8 @@ class PodcastsController < ApplicationController
     phone = current_user.phone
 
     if phone.present?
-      title = @podcast.title
-      url   = feed_url(@podcast.public_id)
+      title   = @podcast.title
+      url     = feed_url(@podcast.public_id).gsub(/^https?/, current_user.scheme)
       message = "#{title}\n#{url}"
 
       TWILIO_CLIENT.account.messages.create(

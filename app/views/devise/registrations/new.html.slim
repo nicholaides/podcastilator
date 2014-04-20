@@ -18,6 +18,12 @@
       = f.text_field :phone, class: "text-field form-control", html: {spellcheck: "false"}
 
   .form-group
+    = f.label :scheme, "Prefered feed scheme", class: "control-label col-md-4"
+    .col-md-8
+      = f.select :scheme, scheme_options, {}, class: 'form-control'
+
+
+  .form-group
     = f.label :password, class: "control-label col-md-4"
     .col-md-8
       = f.password_field :password, class: "text-field form-control", html: {autocomplete: "off"}

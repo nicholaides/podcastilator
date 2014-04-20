@@ -10,4 +10,11 @@ class Podcast < ActiveRecord::Base
   def set_public_id
     self.public_id = SecureRandom.hex(20)
   end
+
+  SCHEMES = {
+    http:    "Generic",
+    podcast: "Instacast",
+    itpc:    "Instacast",
+    pcast:   "Apple Podcast app"
+  }
 end

@@ -19,6 +19,10 @@ h2 Edit #{resource_name.to_s.humanize}
     = f.text_field :phone, class: 'text-field form-control'
 
   .form-group
+    = f.label :scheme, "Prefered feed scheme"
+    = f.select :scheme, scheme_options, {}, class: 'form-control'
+
+  .form-group
     = f.label :current_password
     em
       | (we need your current password to confirm your changes)

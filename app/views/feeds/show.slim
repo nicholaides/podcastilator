@@ -2,6 +2,10 @@ doctype xml
 rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
   channel
     title = @podcast.title
+    image
+      title = @podcast.title
+      link = podcast_url(@podcast)
+      url = image_url('logo.gif')
 
     - @podcast.episodes.sort_by(&:order).each do |episode|
       item

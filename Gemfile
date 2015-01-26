@@ -54,6 +54,8 @@ gem 'filepicker-rails'
 
 gem 'twilio-ruby'
 
+gem 'rails_12factor', group: :production
+
 group :test do
   gem 'capybara'
   gem 'capybara-screenshot'

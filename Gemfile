@@ -43,5 +43,4 @@ end
 group :development do
   gem 'better_errors'
   gem 'foreman'
-  gem 'quiet_assets'
 end

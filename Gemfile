@@ -42,20 +42,9 @@ gem 'twilio-ruby'
 
 gem 'rails_12factor', group: :production
 
-group :test do
-  gem 'capybara'
-  gem 'capybara-screenshot'
-  gem 'database_cleaner', '1.0.1'
-  gem 'poltergeist'
-end
-
 group :development, :test do
   gem 'pry-rails'
   gem 'dotenv-rails'
-  gem 'factory_girl_rails'
-  gem 'rspec-rails'
-  gem 'sinon-rails'
-  gem 'teaspoon'
 end
 
 group :development do

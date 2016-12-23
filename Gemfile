@@ -18,8 +18,6 @@ end
 
 gem 'pg'
 
-gem 'bundler'
-
 gem 'bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'binding_of_caller'

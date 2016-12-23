@@ -201,7 +201,6 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   bootstrap-sass-extras
-  bundler
   coffee-rails
   devise
   dotenv-rails

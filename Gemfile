@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.3'
+ruby '2.4.0'
 
 gem 'rails'
 
@@ -10,11 +10,6 @@ gem 'uglifier'
 gem 'coffee-rails'
 
 gem 'jquery-rails'
-
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
 
 gem 'pg'
 
